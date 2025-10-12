@@ -1,0 +1,16 @@
+Public Sub Clear_All_Workbook_Slicer_Filters()
+' Clears all slicer filters in all worksheets
+' Developed by ExcelPowerTips - visit my Youtube Channel - Like - Subscribe - Share
+
+' Switch off screen updating for performance
+Application.ScreenUpdating = False
+' Declare single Slicer Cache type variable
+Dim cache As SlicerCache
+' Cycle through each cache in whole Excel workbook and clear any manual filter applied
+For Each cache In ActiveWorkbook.SlicerCaches
+    cache.ClearManualFilter
+Next cache
+ActiveSheet.Range("D20").Select
+' Switch back on screen updating
+Application.ScreenUpdating = True
+End Sub
